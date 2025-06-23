@@ -6,6 +6,7 @@ class OpeningTimesModel extends Model
 {
     public function __construct()
     {
+        parent::__construct();
         $this->data = [
             'days' => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
             'opening_hours' => [

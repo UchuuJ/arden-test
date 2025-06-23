@@ -9,6 +9,7 @@ class TopFiveProductsModel extends Model
 {
 
     public function __construct(){
+        parent::__construct();
         $this->data = [
             'products' =>[
                 //These should be extracted into a product class.

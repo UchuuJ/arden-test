@@ -24,6 +24,8 @@ error_reporting(E_ALL);
             <h2>Opening times</h2>
 
             <?php
+
+            include __DIR__ . '/DBDriver/include.php';
             include __DIR__ . '/BaseController.php';
             include __DIR__ . '/Model.php';
             include __DIR__ . '/View.php';

@@ -13,6 +13,7 @@ class ProductModel extends Model
 
     public function __construct(string $name, string $price, string $imageLocation)
     {
+        parent::__construct();
         $this->data = [
             'name' => $name,
             'price' => $price,
