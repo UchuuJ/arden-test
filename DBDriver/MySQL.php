@@ -24,7 +24,6 @@ class MySQL{
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false,
         ];
         try {
             $this->pdo = new PDO($dsn, $this->username, $this->pass, $options);
@@ -59,6 +58,22 @@ class MySQL{
             $queryResults[] = $row;
         }
         return $queryResults;
+    }
+
+    function insert($data, $table)
+    {
+        $sizeOfData = sizeof($data);
+        $paramString = '';
+        for($i = 0; $i < $sizeOfData; $i++){
+            if($i == $sizeOfData-1){
+               $paramString .= '?';
+                break;
+            }
+            $paramString .= '?,';
+        }
+
+        $this->pdo->prepare('INSERT INTO '.$table.' ('.implode(',',array_keys($data)).') VALUES ('.$paramString.')')
+            ->execute(array_values($data));
     }
 
 }
