@@ -13,6 +13,7 @@ class OpeningTimesModel extends Model
                 'Mon' => '0900 - 1700',
                 'Tue' => '0900 - 1400',
                 'Wed' => 'Closed',
+                'Thu' => 'Closed', //this was missing I assume It would be closed.
                 'Fri' => '1000 - 1300',
             ]
         ];
