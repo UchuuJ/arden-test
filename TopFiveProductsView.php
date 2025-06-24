@@ -22,7 +22,7 @@ class TopFiveProductsView extends View
     }
 
     public function render() {
-        // Render opening times
+        // Render Top Five Products View
         foreach ($this->data['products'] as $product) {
             $productData  = $product->getData();
             echo "<div>";

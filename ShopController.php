@@ -5,7 +5,6 @@ namespace Arden;
 use OpeningTimesModel;
 use TopFiveProductsModel;
 
-//use Enums\Types;
 use Arden\Enum\Types;
 
 

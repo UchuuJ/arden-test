@@ -78,6 +78,10 @@ cd /var/www/arden-test
 mysql -uUSER_GOES_HERE -pPASSWORDGOESHERE arden < arden-tables.sql
 ```
 
+### Setting up .env
+copy the `.env.sample` file to `.env`
+And add your database credientials to the file. 
+
 And voila if you go to the site http://arden-test.local the site should work.
 
 ### Asset Credits
