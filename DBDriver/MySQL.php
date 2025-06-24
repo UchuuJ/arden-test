@@ -49,6 +49,8 @@ class MySQL{
         }
 
         $this->query = $this->pdo->query("SELECT ".implode(',',$columns)." FROM ".$table.$optionString);
+
+        //returns this so we can do PdoInstance->select()->execute()
         return $this;
     }
 
@@ -60,6 +62,9 @@ class MySQL{
         return $queryResults;
     }
 
+    /**
+     * inserts data into table
+     */
     function insert($data, $table)
     {
         $sizeOfData = sizeof($data);

@@ -59,8 +59,24 @@ class ContactController extends BaseController
 
     public function sendMail(){
         /** I Usually use a third party service....
-         * soooo probably not going to work, this is how I would impliment it
+         * soooo probably not going to work unless you have smtp set up, this is how I would impliment it
          */
+
+        /**
+         * Just wanted to flex some UNIX knowlege
+         * Computer host name is stored in /etc/hostname.
+         * But this should be set in a .env and used from there instead
+         */
+
+        $hostFile = fopen('/etc/hostname','r');
+        $hostName = fread($hostFile, filesize('/etc/hostname'));
+        fclose($hostFile);
+
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        $headers .= 'From: <no-reply@'.$hostName.'>'."\r\n";
 
         mail($this->ContactModel->getData()['email'],'New Website Response',$this->ContactModel->getData()['message']);
     }

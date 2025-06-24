@@ -31,29 +31,21 @@ class OpeningTimesView extends View
         echo "<th>Opening</th>";
         echo "<th>Closing</th>";
         echo "</tr>";
-        foreach ($this->data as $key => $val) {
-            if ($key == 'days') {
-                foreach ($val as $day) {
+
+        foreach ($this->data['opening_hours'] as $day => $hours) {
                     echo "<tr>";
                     echo '<td>' . $day."</td>";
-
-                    foreach ($this->data['opening_hours'] as $d => $hours) {
-                        if ($d == $day) {
-                            /**
-                             * Logic to figure out which part of the hours is open or closed
-                             */
-                            $hours = explode('-',$hours);
-                            echo '<td>'. $hours[0].'</td>';
-                            if(sizeof($hours)>1){
-                                echo '<td>'. $hours[1].'</td>';
-                            } else {
-                                echo '<td></td>';
-                            }
-                        }
-                    };
+                    /**
+                     * Logic to figure out which part of the hours is open or closed
+                     */
+                    $hours = explode('-',$hours);
+                    echo '<td>'. $hours[0].'</td>';
+                    if(sizeof($hours)>1){
+                        echo '<td>'. $hours[1].'</td>';
+                    } else {
+                        echo '<td></td>';
+                    }
                     echo "</tr>";
-                }
-            }
         }
         echo "</table>";
     }
